@@ -2,7 +2,7 @@
 
 
 
-# Using smallstep CA
+## Using smallstep CA
 
 https://smallstep.com/
 

@@ -164,6 +164,8 @@ Hello, world!
 
 ## Run grpc and grpc-gateway example program
 
+https://smallstep.com/practical-zero-trust/go-grpc-tls
+
 ### Get the certificate and key for localhost
 
 step ca certificate localhost srv.crt srv.key

@@ -178,7 +178,7 @@ step ca certificate localhost srv.crt srv.key
 
 go run server/main.go 
 
-The grpc server is at 5443 and HTTPS server is 6443.
+The grpc server is at 5443 and HTTPS server is 5444.
 
 ### Run grpc client
 
@@ -191,7 +191,7 @@ If there is an issue use -cacert ca.crt.
 
 ### Run https client
 
-curl -X POST -k https://localhost:6443/v1/example/echo -d '{"name": " hello"}'
+curl -X POST -k https://localhost:5444/v1/example/echo -d '{"name": " hello"}'
 
 
 If root.crt is installed system-wide it should work.

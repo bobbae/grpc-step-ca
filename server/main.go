@@ -83,7 +83,7 @@ func main() {
 	}
 
 	gwServer := &http.Server{
-		Addr:    ":6443",
+		Addr:    ":5444",
 		Handler: gwmux,
 	}
 	log.Printf("Serving gRPC-Gateway on %v", gwServer.Addr)

@@ -11,7 +11,7 @@ https://github.com/smallstep/certificates
 
 ## Install smallstep
 
-### install step CLI
+### Install step CLI
 
 ```
 wget https://dl.step.sm/gh-release/cli/docs-ca-install/v0.18.2/step-cli_0.18.2_amd64.deb
@@ -26,7 +26,7 @@ tar -xf step.tar.gz
 sudo cp step_0.18.2/bin/step /usr/bin
 ```
 
-### install step CA
+### Install step CA
 
 ```
 wget https://dl.step.sm/gh-release/certificates/docs-ca-install/v0.18.2/step-ca_0.18.2_amd64.deb
@@ -97,7 +97,7 @@ Please enter the password to decrypt /home/bob/.step/secrets/intermediate_ca_key
 
 ```
 
-### accessing CA and bootstrap
+### Accessing CA and bootstrap
 
 ```
 $ step certificate fingerprint $(step path)/certs/root_ca.crt
@@ -119,14 +119,14 @@ The authority configuration has been saved in /home/bob/.step/config/defaults.js
 The step command will now trust your CA.
 
 
-### establish system-wide trust of your CA
+### Establish system-wide trust of your CA
 
 So your certificates will be trusted by curl and other programs.
 
 step certificate install $(step path)/certs/root_ca.crt
 
 
-### ask the CA for a certificate  and private key 
+### Ask the CA for a certificate  and private key 
 
 ```
 $ step ca certificate localhost srv.crt srv.key
@@ -220,17 +220,17 @@ step certificate create example.com example.com.crt example.com.key --profile le
 
 step certificate verify example.com.crt --roots root_ca.crt
 
-### install the certificate into the system trust store
+### Install the certificate into the system trust store
 
 step certificate install root_ca.crt
 
-### inspect the leaf certificate
+### Inspect the leaf certificate
 
 step certificate inspect example.com.crt --short
 
 step certificate inspect example.com.crt --format json | jq -r .validity.end
 
-### inspect any certificate
+### Inspect any certificate
 
 step certificate inspect https://smallstep.com --format json | jq -r .validity.end
 

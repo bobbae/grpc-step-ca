@@ -238,3 +238,46 @@ step certificate inspect https://smallstep.com --format json | jq -r .validity.e
 
 step ca certificate example.com example.com.crt example.com.key  --acme https://acme-v02.api.letsencrypt.org/directory
 
+
+
+
+## Using smallstep/step-ca docker image
+
+Run step CA using the docker image `smallstep/step-ca` 
+
+```
+$ make dockerrunca
+```
+
+Get fingerprint
+
+```
+$ CA_FINGERPRINT=$(docker exec step-ca step certificate fingerprint certs/root_ca.crt)
+$ echo $CA_FINGERPRINT
+6a79e7ed2361f71f9f3a49ccd09ec52fe3c90a8ba94958daf2020b484cc1866c
+```
+
+Or
+
+```
+$ CA_FINGERPRINT=$(docker exec step-ca step certificate fingerprint certs/root_ca.crt)
+$ echo $CA_FINGERPRINT
+6a79e7ed2361f71f9f3a49ccd09ec52fe3c90a8ba94958daf2020b484cc1866c
+```
+
+
+Build the `grpc-step-hello` docker image.
+
+```
+make dockerbuild
+```
+
+This image will have compiled `helloworld` gRPC server code and `step-cli` and `step-certificates` installed.
+
+Run the `grpc-step-hello` docker image.
+
+```
+make dockerrunhello
+```
+
+

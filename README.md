@@ -103,6 +103,13 @@ Please enter the password to decrypt /home/bob/.step/secrets/intermediate_ca_key
 $ step certificate fingerprint $(step path)/certs/root_ca.crt
 36b696fb9832c4fefa934f8ad92dfebd250390bb116a3dfa56dd37b244e42351
 
+```
+
+
+On (possibly) another machine bootstrap. Only on machine that is not running CA already.
+Usually done for each participating machine that will use our private CA.
+
+```
 
 $ step ca bootstrap --ca-url localhost:8443 --fingerprint 36b696fb9832c4fefa934f8ad92dfebd250390bb116a3dfa56dd37b244e42351
 ⚠️  It looks like step is already configured to connect to an authority.
@@ -121,12 +128,16 @@ The step command will now trust your CA.
 
 ### Establish system-wide trust of your CA
 
-So your certificates will be trusted by curl and other programs.
+So your certificates will be trusted by curl and other programs.  This can be done on another machine.  On each participating machine.
 
-step certificate install $(step path)/certs/root_ca.crt
+```
+$ step certificate install $(step path)/certs/root_ca.crt
+```
 
 
 ### Ask the CA for a certificate  and private key 
+
+On any participating machine capable of talking to CA we can use CA to create certificates.
 
 ```
 $ step ca certificate localhost srv.crt srv.key
